@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Patient Monitoring Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    .card {
+      border-radius: 15px;
+    }
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      border-radius: 15px 15px 0 0;
+    }
+    .card-body {
+      background-color: #f8f9fa;
+    }
+    .table {
+      margin-bottom: 0;
+    }
+    .full-height {
+      height: 100vh;
+    }
+    .half-height {
+      height: 50vh;
+    }
+    img
+    {
+        border-radius: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 full-height overflow-auto">
+      <!-- Patients List Card -->
+      <div class="card mb-3 h-100">
+        <div class="card-header"><i class="fas fa-users"></i> Patients List</div>
+        <div class="card-body">
+            <div class="media mb-3">
+              <img src="https://media.istockphoto.com/id/523918603/photo/business-man-portrait.jpg?s=612x612&w=0&k=20&c=N9VCO2fGiQemF2Ixi3dNj2ibJ5Z5o7BYks_PQOtfSoo=" class="mr-3" alt="..." width="60px" height="60px" >
+              <div class="media-body">
+                <h5 class="mt-0">Ali</h5>
+                <p>2 alerts</p>
+              </div>
+            </div>
+            <div class="media mb-3">
+              <img src="https://images.unsplash.com/photo-1542380841-5eef57349ca1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGlzbGFtaWMlMjBnaXJsfGVufDB8fDB8fHww&w=1000&q=80" class="mr-3" alt="..." width="60px" height="60px">
+              <div class="media-body">
+                <h5 class="mt-0">Fatima</h5>
+                <p>1 alert</p>
+              </div>
+            </div>
+            <div class="media mb-3">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/1200px-Outdoors-man-portrait_%28cropped%29.jpg" class="mr-3" alt="... " width="60px" height="60px">
+              <div class="media-body">
+                <h5 class="mt-0">Ahmed</h5>
+                <p>3 alerts</p>
+              </div>
+            </div>
+            <div class="media mb-3">
+              <img src="https://e0.pxfuel.com/wallpapers/626/508/desktop-wallpaper-islamic-islamic-beautiful-girl.jpg" class="mr-3" alt="..." width="60px" height="60px">
+              <div class="media-body">
+                <h5 class="mt-0">Sara</h5>
+                <p>2 alerts</p>
+              </div>
+            </div>
+            <div class="media mb-3">
+              <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="mr-3" alt="..." width="60px" height="60px">
+              <div class="media-body">
+                <h5 class="mt-0">Zain</h5>
+                <p>1 alert</p>
+              </div>
+            </div>
+            <div class="media mb-3">
+              <img src="https://media.istockphoto.com/id/1149063930/photo/portrait-of-muslim-arabian-woman-wearing-hijab-looking-at-camera.jpg?s=612x612&w=0&k=20&c=dhJFwuaFgd5gK-l03B3nlSQLlRsGMI4D8wDnRVEnR2U=" class="mr-3" alt="..." width="60px" height="60px">
+              <div class="media-body">
+                <h5 class="mt-0">Ayesha</h5>
+                <p>3 alerts</p>
+              </div>
+            </div>
+            <div class="media mb-3">
+              <img src="https://images.pexels.com/photos/709188/pexels-photo-709188.jpeg?cs=srgb&dl=pexels-fernanda-latronico-709188.jpg&fm=jpg" class="mr-3" alt="..." width="60px" height="60px">
+              <div class="media-body">
+                <h5 class="mt-0">Bilal</h5>
+                <p>2 alerts</p>
+              </div>
+            </div>
+            
+            <!-- Add New button -->
+            <button type="button" class="btn btn-primary btn-block">Add New</button>
+          </div>
+          
+      </div>
+    </div>
+
+    <div class="col-10">
+      <div class="row" >
+        <div class="col-9 ">
+          <!-- Vitals Card -->
+          <div class="card mb-3 h-10" >
+            <div class="card-header">
+              <div class="media">
+                <img src="https://media.istockphoto.com/id/523918603/photo/business-man-portrait.jpg?s=612x612&w=0&k=20&c=N9VCO2fGiQemF2Ixi3dNj2ibJ5Z5o7BYks_PQOtfSoo=" class="mr-3" alt="..." width="70px" height="70px">
+                <div class="media-body">
+                  <h2 class="mt-2">Ali Raza</h2>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col mb-4 mt-4"><strong>Age:</strong> 35</div>
+                <div class="col mb-4 mt-4"><strong>Sex:</strong> Male</div>
+                <div class="col mb-4 mt-4"><strong>Blood Type:</strong> O+</div>
+                <div class="col mb-4 mt-4"><strong>Weight:</strong> 70kg</div>
+                <div class="col mb-4 mt-4"><strong>Height:</strong> 175cm</div>
+                <div class="col mb-4 mt-4"><strong>BMI:</strong> 22.9</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3 ">
+          <!-- Vitals Details Card -->
+          <div class="card mb-3 h-20">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3 mt-1">
+                <i class="fas fa-heart text-danger mr-2" style="font-size: 30px;"></i>
+                <div style="font-size: medium; font-weight: bold; margin-left: 4px;">95 BPM <sup><small>Normal</small></sup></div>
+              </div>
+              <div class="d-flex align-items-center mb-3 mt-1">
+                <i class="fas fa-tint text-primary mr-2" style="font-size: 30px;"></i>
+                <div style="font-size: medium; font-weight: bold; margin-left: 10px;">140/90 <sup><small>Normal</small></sup></div>
+              </div>
+              <div class="d-flex align-items-center mb-3 mt-1">
+                <i class="fas fa-thermometer-half text-warning mr-2" style="font-size: 30px;"></i>
+                <div style="font-size: medium; font-weight: bold; margin-left: 15px;">36.2°C <sup><small>Normal</small></sup></div>
+              </div>
+              <div class="d-flex align-items-center mb-1 mt-1">
+                <i class="fas fa-weight text-success mr-2" style="font-size: 25px;"></i>
+                <div style="font-size: medium; font-weight: bold; margin-left: 8px;">89-72 <sup><small>Normal</small></sup></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 ">
+          <!-- Pulse Graph Card -->
+          <div class="card mb-3 h-60">
+            <div class="card-header"><i class="fas fa-chart-line"></i> Pulse Graph</div>
+            <div class="card-body">
+                <canvas id="pulseGraph"></canvas>
+
+                
+                  
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4 ">
+          <!-- Sleep Patterns Card -->
+          <div class="card mb-3 ">
+            <div class="card-header"><i class="fas fa-bed"></i> Sleep Patterns</div>
+            <div class="card-body">
+                <canvas id="sleepPatternGraph"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+            <!-- Past Appointments Card -->
+            <div class="card mb-3">
+              <div class="card-header"><i class="fas fa-notes-medical"></i> Past Appointments</div>
+              <div class="card-body">
+                <p><strong>30 Sep 2023</strong> - Dr. Ahmed - Anxiety</p>
+                <p><strong>15 Oct 2023</strong> - Dr. Khan - Regular Checkup</p>
+                <p><strong>20 Oct 2023</strong> - Dr. Ali - Blood Pressure</p>
+                <p><strong>25 Oct 2023</strong> - Dr. Fatima - Diabetes</p>
+                <p><strong>30 Oct 2023</strong> - Dr. Ahmed - Heart Checkup</p>
+                
+              </div>
+              
+            </div>
+          </div>
+
+          
+          
+
+
+      </div>
+
+      <div class="row text-center">
+        <div class="col-4">
+          <i class="fas fa-toilet fa-2x"></i>
+          <h4>Toilet Usage</h4>
+          <p><strong>Average:</strong> <span style="color:orange;">Normal</span></p>
+        </div>
+        <div class="col-4">
+          <i class="fas fa-tint fa-2x"></i>
+          <h4>Water Intake</h4>
+          <p><strong>Status:</strong> <span style="color:green;">Good</span></p>
+        </div>
+        <div class="col-4">
+          <i class="fas fa-pills fa-2x"></i>
+          <h4>Medication</h4>
+          <p><strong>Adherence:</strong> <span style="color:green;">Good</span></p>
+        </div>
+      </div>
+
+      
+
+       
+  </div>
+  
+</div>
+
+</div>
+
+<script>
+    var ctx = document.getElementById('pulseGraph').getContext('2d');
+    var pulseData = [];
+    for (let i = 0; i < 6; i++) {
+      pulseData.push(0, 50, 0, -50, 0);
+    }
+    var pulseGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Array(30).fill(''),
+            datasets: [{
+                label: 'Pulse',
+                data: pulseData,
+                backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                borderColor: 'rgba(255, 0, 0, 1)',
+                borderWidth: 2,
+                pointRadius: 0,
+                lineTension: 0
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            },
+            elements: {
+                point:{
+                    radius: 0
+                }
+            },
+            animation: {
+                duration: 0
+            }
+        }
+    });
+
+
+    // for sleep graph
+
+    var ctx = document.getElementById('sleepPatternGraph').getContext('2d');
+var sleepPatternGraph = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+            label: 'Sleep Hours',
+            data: [0, 2, 5, 3, 7, 8, 9],
+            backgroundColor: 'rgba(0, 123, 255, 0.1)',
+            borderColor: 'rgba(0, 123, 255, 1)',
+            borderWidth: 2,
+            pointRadius: 3,
+            lineTension: 0.2
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1
+                }
+            }
+        }
+    }
+});
+
+    </script>
+        
+    
+
+</body>
+</html>
